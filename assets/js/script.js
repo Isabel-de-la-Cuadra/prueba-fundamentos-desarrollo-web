@@ -65,26 +65,26 @@ $(document).ready(function() {
                         estadisticas.push({ y: data.powerstats[key], name: key })
                     }
 
-                    console.log(estadisticas);
-
                     var chart = new CanvasJS.Chart("chartContainer", {
                         exportEnabled: true,
                         animationEnabled: true,
                         title: {
                             text: `Estadísticas de Poder para ${nombre}`,
-                            fontSize: 20,
+                            fontsize: 5,
                             fontColor: "blue"
                         },
                         legend: {
                             cursor: "pointer",
-                            itemclick: explodePie
+                            itemclick: explodePie,
+                            fontsize: 8,
+                            fontColor: "blue"
                         },
                         data: [{
                             type: "pie",
                             showInLegend: true,
                             toolTipContent: "{name}: <strong>{y}</strong>",
                             indexLabel: "{name} - {y}",
-                            dataPoints: estadisticas
+                            dataPoints: estadisticas,
                         }]
                     });
                     chart.render();

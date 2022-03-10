@@ -25,7 +25,7 @@ $(document).ready(function() {
                     console.log(data);
 
                     let nombre = data.name;
-                    let conexiones = data.connections.relatives;
+                    let conexiones = data.connections["group-affiliation"];
                     let publicadoPor = data.biography.publisher;
                     let ocupacion = data.work.occupation;
                     let primeraAparicion = data.biography["first-appearance"];
@@ -53,7 +53,7 @@ $(document).ready(function() {
                                     <p class="card-text fs-6 border" id="small-font">Primera Aparición: ${primeraAparicion}</p>
                                     <p class="card-text fs-6 border" id="small-font">Altura: ${alturaP} o ${alturaCM}</p> 
                                     <p class="card-text fs-6 border" id="small-font">Peso: ${pesoL} o ${pesoK}</p>
-                                    <p class="card-text fs-6 border" id="small-font">Alianzas: ${alianzas}</p>
+                                    <p class="card-text fs-6 border" id="small-font">Alias: ${alianzas}</p>
                                 </div>
                             </div>
                         </div>

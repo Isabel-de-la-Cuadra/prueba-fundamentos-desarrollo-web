@@ -65,7 +65,7 @@ $(document).ready(function() {
                             estadisticas.push({ y: data.powerstats[key], name: key });
                         } else {
                             $("#chartContainer").append(`
-                            <h4 class="text-start ms-5">SuperHero Encontrado</h4>`)
+                            <h4 class="text-center">Lo siento, no tengo información para graficar</h4>`)
                         }
 
                     }
@@ -104,6 +104,7 @@ $(document).ready(function() {
                         e.chart.render();
 
                     }
+
 
                 }
 

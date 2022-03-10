@@ -22,7 +22,6 @@ $(document).ready(function() {
             dataType: "json",
             success: function(data) {
                 if (data !== null && data !== undefined) {
-                    console.log(data);
 
                     let nombre = data.name;
                     let conexiones = data.connections["group-affiliation"];
@@ -33,7 +32,7 @@ $(document).ready(function() {
                     let alturaCM = data.appearance.height["1"];
                     let pesoL = data.appearance.weight["0"];
                     let pesoK = data.appearance.weight["1"];
-                    let alianzas = data.biography.alianses;
+                    let alias = data.biography.aliases;
                     let imagen = data.image.url
 
                     $("#superHeroInfo").append(`
@@ -53,7 +52,7 @@ $(document).ready(function() {
                                     <p class="card-text fs-6 border" id="small-font">Primera Aparición: ${primeraAparicion}</p>
                                     <p class="card-text fs-6 border" id="small-font">Altura: ${alturaP} o ${alturaCM}</p> 
                                     <p class="card-text fs-6 border" id="small-font">Peso: ${pesoL} o ${pesoK}</p>
-                                    <p class="card-text fs-6 border" id="small-font">Alias: ${alianzas}</p>
+                                    <p class="card-text fs-6 border" id="small-font">Alias: ${alias}</p>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +61,13 @@ $(document).ready(function() {
                     let estadisticas = [];
 
                     for (let key in data.powerstats) {
-                        estadisticas.push({ y: data.powerstats[key], name: key })
+                        if (data.powerstats !== null && data.powerstats !== undefined) {
+                            estadisticas.push({ y: data.powerstats[key], name: key });
+                        } else {
+                            $("#chartContainer").append(`
+                            <h4 class="text-start ms-5">SuperHero Encontrado</h4>`)
+                        }
+
                     }
 
                     var chart = new CanvasJS.Chart("chartContainer", {
